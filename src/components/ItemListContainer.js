@@ -1,14 +1,23 @@
+import ItemCount from "./ItemCount";
+
 function ItemListContainer() {
 
-    let nombre = 'Coder'
+    let greeting = 'Hola Coder'
 
     const styles = {
-        backgroundColor: 'yellow',
-        color: 'black'
+        backgroundColor: '#6419E6',
+        color: 'white'
+    }
+
+    function onAdd(cantidad) {
+        console.log(cantidad);
     }
 
     return (
-    <p style={styles}>Hola, {nombre}!</p>
+        <>
+            <p style={styles}>{greeting}!</p>
+            <ItemCount stock={5} initial={0} onAdd={onAdd}/>
+        </>
     )
 }
 export default ItemListContainer
