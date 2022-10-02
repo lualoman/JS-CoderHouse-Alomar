@@ -3,7 +3,7 @@ import {useState, useEffect} from "react"
 import ItemCount from "./ItemCount"
 import ItemList from "./ItemList"
 import {getProducts, getProductsByCategory} from "../data/asyncMock"
-import useParams from "react-router-dom"
+import {useParams} from "react-router-dom"
 
 function ItemListContainer({greeting}) {
 
