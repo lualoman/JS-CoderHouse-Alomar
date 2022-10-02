@@ -17,9 +17,9 @@ function ItemListContainer({greeting}) {
 
     const [items, setItems] = useState([])
 
+    const { categoryId } = useParams()
+    
     useEffect(() => {
-
-        const { categoryId } = useParams()
 
         if(categoryId) {
             getProductsByCategory(categoryId).then((res) => {
