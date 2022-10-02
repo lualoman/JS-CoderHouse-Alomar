@@ -24,22 +24,15 @@ function ItemListContainer({greeting}) {
         if(categoryId) {
             getProductsByCategory(categoryId).then((res) => {
                 setItems(res)
-            }
-        }else{
-            getProducts().then((res) => {
-                setItems(res)
-                });
-            }
-        }
-        
-        getProducts().then(res => {
-            setItems(res)
-        })
-            .catch(err => {
-                console.log('err: ' + err);
             })
-
-    }, [categoryId])
+        }else{
+            getProducts().then(res => {
+                setItems(res)
+            }).catch(err => {
+                    console.log('err: ' + err);
+                })
+            }
+        }, [categoryId])
 
     return (
         <>
