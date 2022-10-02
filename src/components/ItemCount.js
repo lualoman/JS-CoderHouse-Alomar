@@ -25,7 +25,7 @@ const ItemCount = (props) => {
             </label>
             <div className='m-2'><button onClick={clickResta} className='btn m-4 btn-square btn-outline'>-</button>{counter}<button onClick={clickSuma} className='btn m-4 btn-square btn-outline'>+</button></div>
 
-            <button onClick={clickSuma} className="btn m-3">Agregar al Carrito</button>
+            <button onClick={()=> props.onAdd(counter)} className="btn m-3">Agregar al Carrito</button>
         </div>
         </>
     )

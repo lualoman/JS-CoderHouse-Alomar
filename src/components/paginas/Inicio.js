@@ -3,7 +3,7 @@ import React from "react";
 function Inicio() {
     return (
         <div>
-            <h1>Texto de Pagina de Inicio</h1>
+            <h1>TEstas en la Pagina de Inicio</h1>
         </div>
     );
 }

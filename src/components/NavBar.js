@@ -23,9 +23,9 @@ const NavBar = () => {
                     </div>
 
                     <div className="btn-group mr-auto lg:btn-group-horizontal">
-                        <button className="btn btn-glass"><Link className="nav-link" style={styles} to='/'>Inicio</Link></button>
+                        <button className="btn btn-active"><Link className="nav-link" style={styles} to='/'>Inicio</Link></button>
                         <button className="btn btn-active"><Link className="nav-link" style={styles} to='/Productos'>Productos</Link></button>
-                        <button className="btn btn-glass"><Link className="nav-link" style={styles} to='/Contacto'>Contacto</Link></button>
+                        <button className="btn btn-active"><Link className="nav-link" style={styles} to='/Contacto'>Contacto</Link></button>
                     </div>
                 </div>
             </nav>
