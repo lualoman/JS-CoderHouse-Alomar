@@ -16,7 +16,7 @@ export const getProducts = () => {
 
 export const getProduct = (id) => {
 
-    const getItem = products.find(getIt => getIt.id === 'products.id')
+    const getItem = products.find(getIt => getIt.id === id)
 
     return new Promise((resolve) => {
         setTimeout(() => {
@@ -27,7 +27,7 @@ export const getProduct = (id) => {
 
 export const getProductsByCategory = (category) => {
 
-    const getItem = products.filter(getIt => getIt.category === 'products.category')
+    const getItem = products.filter(getIt => getIt.category === category)
 
     return new Promise((resolve) => {
         setTimeout(() => {

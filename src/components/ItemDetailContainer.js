@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react"
 import ItemDetail from "./ItemDetail"
-import {getProducts} from "../data/asyncMock"
+import {getProduct} from "../data/asyncMock"
 
 
 const ItemDetailContainer = () => {
@@ -8,7 +8,7 @@ const ItemDetailContainer = () => {
     const [item, setItem] = useState([])
 
     useEffect(() => {
-        getProducts().then(res => {
+        getProduct().then(res => {
             setItem(res)
         })
             .catch(err => {

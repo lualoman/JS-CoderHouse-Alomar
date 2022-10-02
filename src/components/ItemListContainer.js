@@ -2,7 +2,7 @@
 import {useState, useEffect} from "react"
 import ItemCount from "./ItemCount";
 import ItemList from "./ItemList";
-import {getProducts} from "../data/asyncMock"
+import {getProducts, getProductsByCategory} from "../data/asyncMock"
 
 function ItemListContainer({greeting}) {
 
@@ -18,13 +18,28 @@ function ItemListContainer({greeting}) {
     const [items, setItems] = useState([])
 
     useEffect(() => {
+
+        const { categoryId } = useParams()
+
+        if(categoryId) {
+            getProductsByCategory(categoryId).then((res) => {
+                setItems(res)
+            }
+        }else{
+            getProducts().then((res) => {
+                setItems(res)
+                });
+            }
+        }
+        
         getProducts().then(res => {
             setItems(res)
         })
             .catch(err => {
                 console.log('err: ' + err);
             })
-    }, [])
+
+    }, [categoryId])
 
     return (
         <>
