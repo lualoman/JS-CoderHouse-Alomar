@@ -1,6 +1,10 @@
-const Item = ({ name, price }) => {
+const Item = ({ name, price, pictureUrl }) => {
     return (
-        <div>{name}, price: {price}</div>
+        <>
+        <p>{name}</p> 
+        <p>Valor: ${price}</p>
+        <img src={pictureUrl} alt='imagen de producto' />
+        </>
     )
 }
 export default Item

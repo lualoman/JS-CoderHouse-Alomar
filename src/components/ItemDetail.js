@@ -2,8 +2,9 @@
 const ItemDetail = ({name, price, pictureUrl}) => {
     return (
         <>
-        <div>{pictureUrl}</div>
-        <div>{name}, price: {price}</div>
+        <p>{name}</p> 
+        <p>Valor: ${price}</p>
+        <img src={pictureUrl} alt='imagen de producto' />
         </>
     )
 }
