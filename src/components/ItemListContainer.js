@@ -1,8 +1,9 @@
 
 import {useState, useEffect} from "react"
-import ItemCount from "./ItemCount";
-import ItemList from "./ItemList";
+import ItemCount from "./ItemCount"
+import ItemList from "./ItemList"
 import {getProducts, getProductsByCategory} from "../data/asyncMock"
+import useParams from "react-router-dom"
 
 function ItemListContainer({greeting}) {
 
@@ -18,7 +19,7 @@ function ItemListContainer({greeting}) {
     const [items, setItems] = useState([])
 
     const { categoryId } = useParams()
-    
+
     useEffect(() => {
 
         if(categoryId) {
