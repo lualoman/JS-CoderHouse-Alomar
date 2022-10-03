@@ -5,6 +5,7 @@ import NavBar from './components/NavBar';
 import Contacto from './components/paginas/Contacto';
 import Productos from './components/paginas/Productos';
 import ItemListContainer from './components/ItemListContainer';
+import ItemDetailContainer from './components/ItemDetailContainer';
 import Footer from './components/Footer'
 
 function App() {
@@ -16,6 +17,7 @@ function App() {
           <Route path={"/"} element={<ItemListContainer greeting={'Tu SmartPlace de confianza, todo un mundo para vos!'}/>}/>
           <Route path={"/productos"} element={<Productos/>}/>
           <Route path={"/contacto"} element={<Contacto/>}/>
+          <Route path={"/producto/item/:id"} element={<ItemDetailContainer/>}/>
         </Routes>
       </BrowserRouter>
     <Footer/>

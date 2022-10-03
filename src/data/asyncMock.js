@@ -1,8 +1,8 @@
 const products = [
-    { id: 1, name: 'Mouse', price: '10', pictureUrl: 'https://i.ibb.co/2q8hFN9/mouse.jpg', category: 'Accesorios Electronicos'},
-    { id: 2, name: 'Luces LED', price: '20', pictureUrl: 'https://i.ibb.co/fSC2RB2/lucesled.jpg', category: 'Accesorios Electronicos'},
+    { id: 1, name: 'Mouse', price: '10', pictureUrl: 'https://i.ibb.co/2q8hFN9/mouse.jpg', category: 'Accesorios'},
+    { id: 2, name: 'Luces LED', price: '20', pictureUrl: 'https://i.ibb.co/fSC2RB2/lucesled.jpg', category: 'Accesorios'},
     { id: 3, name: 'McBook', price: '30', pictureUrl: 'https://i.ibb.co/rbjdGyN/mcbook.jpg', category: 'Compuradoras' },
-    { id: 4, name: 'Parlante', price: '40', pictureUrl: 'https://i.ibb.co/LJpFMr6/parlante.jpg', category: 'Accesorios Electronicos' },
+    { id: 4, name: 'Parlante', price: '40', pictureUrl: 'https://i.ibb.co/LJpFMr6/parlante.jpg', category: 'Accesorios' },
 ]
 
 export const getProducts = () => {
