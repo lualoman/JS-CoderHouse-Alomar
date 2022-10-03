@@ -23,9 +23,9 @@ const NavBar = () => {
                     </div>
 
                     <div className="btn-group mr-auto lg:btn-group-horizontal">
-                        <button className="btn btn-active"><Link className="nav-link" style={styles} to='/'>Inicio</Link></button>
-                        <button className="btn btn-active"><Link className="nav-link" style={styles} to='/Productos'>Productos</Link></button>
-                        <button className="btn btn-active"><Link className="nav-link" style={styles} to='/Contacto'>Contacto</Link></button>
+                        <button className="btn btn-outline btn-accent"><Link className="nav-link" style={styles} to='/'>Inicio</Link></button>
+                        <button className="btn btn-outline btn-accent"><Link className="nav-link" style={styles} to='/Productos'>Productos</Link></button>
+                        <button className="btn btn-outline btn-accent"><Link className="nav-link" style={styles} to='/Contacto'>Contacto</Link></button>
                     </div>
                 </div>
             </nav>

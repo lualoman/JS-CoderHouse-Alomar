@@ -8,7 +8,7 @@ import {useParams} from "react-router-dom"
 function ItemListContainer({greeting}) {
 
     const styles = {
-        backgroundColor: '#6419E6',
+        backgroundColor: '#1FB2A6',
         color: 'white'
     }
 
