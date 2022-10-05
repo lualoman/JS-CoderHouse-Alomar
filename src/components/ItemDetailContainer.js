@@ -1,14 +1,9 @@
 import { useEffect, useState } from "react"
-import ItemCount from "./ItemCount"
 import ItemDetail from "./ItemDetail"
 import {getProduct} from "../data/asyncMock"
 import {useParams} from "react-router-dom"
 
 const ItemDetailContainer = () => {
-
-    function onAdd(cantidad) {
-        console.log(cantidad);
-    }
 
     const [item, setItem] = useState({})
 
@@ -27,7 +22,6 @@ const ItemDetailContainer = () => {
         <>
         <div>ItemDetailContainer</div>
         <ItemDetail item={item}/>
-        <ItemCount stock={5} initial={0} onAdd={onAdd}/>
         </>
     )
 }

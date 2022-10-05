@@ -1,6 +1,5 @@
 
 import {useState, useEffect} from "react"
-//import ItemCount from "./ItemCount"   //EN LINEA 42 ESTABA:   <ItemCount stock={5} initial={0} onAdd={onAdd}/>
 import ItemList from "./ItemList"
 import {getProducts, getProductsByCategory} from "../data/asyncMock"
 import {useParams} from "react-router-dom"
@@ -12,18 +11,14 @@ function ItemListContainer({greeting}) {
         color: 'white'
     }
 
-    /*function onAdd(cantidad) {
-        console.log(cantidad);
-    }*/
-
     const [items, setItems] = useState([])
 
-    const { categoryId } = useParams()
+    const { id } = useParams()
 
     useEffect(() => {
 
-        if(categoryId) {
-            getProductsByCategory(categoryId).then((res) => {
+        if(id) {
+            getProductsByCategory(id).then((res) => {
                 setItems(res)
             })
         }else{
@@ -33,7 +28,7 @@ function ItemListContainer({greeting}) {
                     console.log('err: ' + err);
                 })
             }
-        }, [categoryId])
+        }, [id])
 
     return (
         <>
