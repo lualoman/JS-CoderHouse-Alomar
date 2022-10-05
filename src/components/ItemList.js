@@ -6,7 +6,7 @@ const ItemList = ({items}) => {
 
     return (
         <div>
-            <h1>Visualizando Item en ItemList incorporado a ItemListContainer</h1>
+            <h1>Nuestros Productos</h1>
             {items.map(item => <Item key={item.id} {...item} />)}
         </div>
     )
