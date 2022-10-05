@@ -1,6 +1,6 @@
 
 import {useState, useEffect} from "react"
-import ItemCount from "./ItemCount"
+//import ItemCount from "./ItemCount"   //EN LINEA 42 ESTABA:   <ItemCount stock={5} initial={0} onAdd={onAdd}/>
 import ItemList from "./ItemList"
 import {getProducts, getProductsByCategory} from "../data/asyncMock"
 import {useParams} from "react-router-dom"
@@ -12,9 +12,9 @@ function ItemListContainer({greeting}) {
         color: 'white'
     }
 
-    function onAdd(cantidad) {
+    /*function onAdd(cantidad) {
         console.log(cantidad);
-    }
+    }*/
 
     const [items, setItems] = useState([])
 
@@ -39,7 +39,6 @@ function ItemListContainer({greeting}) {
         <>
             <p style={styles}>{greeting}</p>
             <ItemList items={items}/>
-            <ItemCount stock={5} initial={0} onAdd={onAdd}/>
         </>
     )
 }

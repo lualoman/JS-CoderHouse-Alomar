@@ -1,27 +1,33 @@
 import { useEffect, useState } from "react"
+import ItemCount from "./ItemCount"
 import ItemDetail from "./ItemDetail"
-import {getProductsByCategory} from "../data/asyncMock"
+import {getProduct} from "../data/asyncMock"
 import {useParams} from "react-router-dom"
 
 const ItemDetailContainer = () => {
 
-    const [item, setItem] = useState([])
+    function onAdd(cantidad) {
+        console.log(cantidad);
+    }
 
-    const { categoryId } = useParams()
+    const [item, setItem] = useState({})
+
+    const { id } = useParams()
 
     useEffect(() => {
-        getProductsByCategory(categoryId).then(res => {
+        getProduct(id).then(res => {
             setItem(res)
         })
             .catch(err => {
                 console.log('err: ' + err);
             })
-    }, [categoryId])
+    }, [id])
 
     return (
         <>
         <div>ItemDetailContainer</div>
-        <ItemDetail items={item}/>
+        <ItemDetail item={item}/>
+        <ItemCount stock={5} initial={0} onAdd={onAdd}/>
         </>
     )
 }

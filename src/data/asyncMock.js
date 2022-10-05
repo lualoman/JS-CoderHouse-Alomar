@@ -1,8 +1,8 @@
 const products = [
-    { id: 1, name: 'Mouse', price: '10', pictureUrl: 'https://i.ibb.co/2q8hFN9/mouse.jpg', category: 'Mouse'},
-    { id: 2, name: 'Luces LED', price: '20', pictureUrl: 'https://i.ibb.co/fSC2RB2/lucesled.jpg', category: 'Iluminacion'},
-    { id: 3, name: 'McBook', price: '30', pictureUrl: 'https://i.ibb.co/rbjdGyN/mcbook.jpg', category: 'Compuradoras' },
-    { id: 4, name: 'Parlante', price: '40', pictureUrl: 'https://i.ibb.co/LJpFMr6/parlante.jpg', category: 'Sonido' },
+    { id: '1', name: 'Mouse', price: 10, pictureUrl: 'https://i.ibb.co/2q8hFN9/mouse.jpg', category: 'Mouse'},
+    { id: '2', name: 'Luces LED', price: 20, pictureUrl: 'https://i.ibb.co/fSC2RB2/lucesled.jpg', category: 'Iluminacion'},
+    { id: '3', name: 'McBook', price: 30, pictureUrl: 'https://i.ibb.co/rbjdGyN/mcbook.jpg', category: 'Compuradoras' },
+    { id: '4', name: 'Parlante', price: 40, pictureUrl: 'https://i.ibb.co/LJpFMr6/parlante.jpg', category: 'Sonido' },
 ]
 
 export const getProducts = () => {
@@ -16,7 +16,7 @@ export const getProducts = () => {
 
 export const getProduct = (id) => {
 
-    const getItem = products.find(getIt => getIt.id === id)
+    const getItem = products.find(getIt => getIt.id === {id})
 
     return new Promise((resolve) => {
         setTimeout(() => {
