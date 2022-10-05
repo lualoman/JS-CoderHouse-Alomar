@@ -1,8 +1,7 @@
 import {Link} from "react-router-dom"
 
-
 const ItemDetail = ({ item }) => {
-
+    //console.log(item);
     return (
         <>
         <div className="container-fluid justify-content-center flex">
