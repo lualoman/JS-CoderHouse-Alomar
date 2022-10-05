@@ -1,9 +1,13 @@
-import React from "react";
+function Contacto({greeting}) {
+    
+    const styles = {
+        backgroundColor: '#D926A9',
+        color: 'white'
+    }
 
-function Contacto() {
     return (
         <div>
-            <h1>Estas en la Pagina de Contacto</h1>
+            <p style={styles}>{greeting}</p>
         </div>
     );
 }

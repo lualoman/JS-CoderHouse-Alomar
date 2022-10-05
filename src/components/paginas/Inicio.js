@@ -1,9 +1,13 @@
-import React from "react";
+function Inicio({greeting}) {
 
-function Inicio() {
+    const styles = {
+        backgroundColor: '#D926A9',
+        color: 'white'
+    }
+
     return (
         <div>
-            <h1>TEstas en la Pagina de Inicio</h1>
+            <p style={styles}>{greeting}</p>
         </div>
     );
 }

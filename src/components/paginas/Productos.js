@@ -1,7 +1,9 @@
+import ItemListContainer from "../ItemListContainer";
+
 function Productos() {
     return (
         <div>
-            <h1>Estas en la Pagina de Productos</h1>
+            <ItemListContainer greeting={'PRODUCTOS'}/>
         </div>
     );
 }
