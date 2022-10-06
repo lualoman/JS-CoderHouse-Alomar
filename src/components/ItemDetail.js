@@ -1,32 +1,28 @@
+import { useState } from 'react';
 import {Link} from "react-router-dom"
 import ItemCount from "./ItemCount"
 
 const ItemDetail = ({ item }) => {
+    const [add, setAdd] = useState([])
 
     function onAdd(cantidad) {
-        console.log(cantidad);
+        console.log('Hiciste onAdd ' + cantidad);
+        setAdd(true)
     }
-
-        //console.log(item);
 
     return (
         <>
-        <div>
             <div className="container-fluid justify-content-center flex">
-                <div className="card card-compact w-96 bg-base-100 shadow-xl ">
+                <div className="card card-compact w-96 bg-base-100 shadow-xl flex-row">
                     <figure><img src={item.pictureUrl} alt='imagen de producto' /></figure>
-                    <div className="card-body text-white">
+                    <div className="card-body text-white align-items-center">
                         <h2 className="card-title">{item.name}</h2>
                         <p>Valor: ${item.price}</p>
-                        <Link to={`/producto/category/${item.category}`}><button className="btn btn-ghost">VER POR CATEGORIA</button></Link>
-                        <div className="card-actions justify-end">
-                        <Link to={`/producto/item/${item.id}`}><button className="btn btn-outline btn-accent">Comprar</button></Link>
-                        </div>
-                        <ItemCount stock={item.stock} initial={0} onAdd={onAdd}/>
+                        {add ? <Link to={`/cart`}>Ir a Cart</Link> : <ItemCount stock={item.stock} initial={0} onAdd={onAdd}/>}
+                        <Link to={`/producto/category/${item.category}`}><button className="btn">VER POR CATEGORIA</button></Link>
                     </div>
                 </div>
             </div>
-        </div>        
         </>
     )
 }

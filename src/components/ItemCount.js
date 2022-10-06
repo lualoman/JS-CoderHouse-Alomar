@@ -18,10 +18,11 @@ const ItemCount = (props) => {
 
     return (
         <>
-        <div>
-        <button onClick={clickResta} className='btn m-4 btn-square btn-outline'>-</button>{counter}<button onClick={clickSuma} className='btn m-4 btn-square btn-outline'>+</button>
-            <button onClick={()=> props.onAdd(counter)} className="btn">Agregar al Carrito</button>
-        </div>
+        <label className='flex align-items-center'>
+        <button onClick={clickResta} className='btn m-2 btn-square btn-outline'>-</button>{counter}<button onClick={clickSuma} className='btn m-2 btn-square btn-outline'>+</button>
+        </label>
+        
+        <button onClick={()=> props.onAdd(counter)} className="btn btn-outline btn-accent ml-3">Agregar al Carrito</button>
         </>
     )
 }
