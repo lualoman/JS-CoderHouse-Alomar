@@ -21,7 +21,6 @@ const ItemCount = (props) => {
         <label className='flex align-items-center'>
         <button onClick={clickResta} className='btn m-2 btn-square btn-outline'>-</button>{counter}<button onClick={clickSuma} className='btn m-2 btn-square btn-outline'>+</button>
         </label>
-        
         <button onClick={()=> props.onAdd(counter)} className="btn btn-outline btn-accent ml-3">Agregar al Carrito</button>
         </>
     )

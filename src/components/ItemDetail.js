@@ -1,14 +1,19 @@
 import { useState } from 'react';
 import {Link} from "react-router-dom"
 import ItemCount from "./ItemCount"
+import { useContext } from 'react';                     //TRABAJANDO EN ACTIVIDAD 5
+import { CartContext } from '../context/CartContext';   //TRABAJANDO EN ACTIVIDAD 5
 
 const ItemDetail = ({ item }) => {
+
     const [add, setAdd] = useState([])
 
     function onAdd(cantidad) {
         console.log('Hiciste onAdd ' + cantidad);
         setAdd(true)
     }
+
+    const { addToCart, removeList, deleteItem } = useContext( CartContext ) //TRABAJANDO EN ACTIVIDAD 5
 
     return (
         <>
@@ -18,8 +23,10 @@ const ItemDetail = ({ item }) => {
                     <div className="card-body text-white align-items-center">
                         <h2 className="card-title">{item.name}</h2>
                         <p>Valor: ${item.price}</p>
-                        {add ? <Link to={`/cart`}>Ir a Cart</Link> : <ItemCount stock={item.stock} initial={0} onAdd={onAdd}/>}
-                        <Link to={`/producto/category/${item.category}`}><button className="btn">VER POR CATEGORIA</button></Link>
+
+                        {add ? <Link to={`/cart`}>IR A CART</Link> : <ItemCount stock={item.stock} initial={0} onAdd={onAdd}/>}
+
+                        <Link to={`/producto/category/${item.category}`}>Ver por CATEGORIA</Link>
                     </div>
                 </div>
             </div>
