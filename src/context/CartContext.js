@@ -1,26 +1,38 @@
-import { createContext, useContext, useState } from "react";        //FALTA DARLE USO A useContext
-import ItemCount from "../components/ItemCount";
+import { createContext, useState } from "react";
 
-export const CartContext = createContext();
+export const CartContext = createContext([])
 
 const CartContextProvider = ({ children }) => {
     
-    const [cartList, setCartList] = useState([]);
+    const [cartList, setCartList] = useState([])
 
-    const addToCart = ( item, qty ) => {        //COMO APLICO EL USO DE qty?
+    const addToCart = ( item ) => {
         setCartList( cartList => cartList.concat(item) )
-    }
-    const removeList = (itemId) => {        //COMO APLICO EL USO DE itemId?
-        setCartList.clear()
-    }
-    const deleteItem = (id) => {	//COMO APLICO EL USO DE id?
+        }
 
-    }
+    const removeList = () => {
+        setCartList.clear()
+        }
+
+    const deleteItem = (id) => {
+        const updateCart = cartList.filter(element => element.id !==id)
+        setCartList(updateCart)
+        }
+
+    const isInCart = (id) => {
+        return setCartList.some(element => element.id === id)
+        }
     
+    const context = {
+        cartList, 
+        addToCart, 
+        removeList, 
+        deleteItem
+    }
+
     return (
-        <CartContext.Provider value={{ cartList, addToCart, removeList, deleteItem }}>
+        <CartContext.Provider value={context}>
             {children}
-            <ItemCount/>
         </CartContext.Provider>
     );
 }
