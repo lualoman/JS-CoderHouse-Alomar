@@ -7,7 +7,7 @@ import { CartContext } from '../context/CartContext';
 const ItemDetail = ({ item }) => {
 
     const { addToCart } = useContext( CartContext )
-
+    const [counter, setCounter] = useState(1)
     const [add, setAdd] = useState(false)
 
     function onAdd(cantidad) {
@@ -25,7 +25,7 @@ const ItemDetail = ({ item }) => {
                         <h2 className="card-title">{item.name}</h2>
                         <p>Valor: ${item.price}</p>
 
-                        {add ? <Link to={`/cart`}>IR A CART</Link> : <ItemCount stock={item.stock} initial={0} onAdd={onAdd}/>}
+                        {add ? <Link to={`/cart`}>IR A CART</Link> : <ItemCount stock={item.stock} counter={counter} setCounter={setCounter} initial={0} onAdd={onAdd}/>}
 
                         <Link to={`/producto/category/${item.category}`}>Ver por CATEGORIA</Link>
                     </div>

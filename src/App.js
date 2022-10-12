@@ -10,8 +10,8 @@ import CartContextProvider from '../src/context/CartContext';
 
 function App() {
   return (
-    <CartContextProvider>
     <div className='App'>
+    <CartContextProvider>
       <BrowserRouter>
         <NavBar/>
         <Routes>
@@ -21,9 +21,9 @@ function App() {
           <Route path={"/cart"} element={<Cart/>}/>
         </Routes>
       </BrowserRouter>
-    <Footer/>
-    </div>
+      <Footer/>
     </CartContextProvider>
+    </div>
   );
 }
 

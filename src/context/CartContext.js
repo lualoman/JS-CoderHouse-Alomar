@@ -7,7 +7,7 @@ const CartContextProvider = ({ children }) => {
     const [cartList, setCartList] = useState([])
 
     const addToCart = ( item ) => {
-        console.log("Hiciste un addToCart");
+        console.log(`Hiciste un addToCart` + item); // AGREGUE + item
         setCartList( cartList => cartList.concat(item) )
         }
 
