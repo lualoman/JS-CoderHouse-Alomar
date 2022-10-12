@@ -6,14 +6,16 @@ import { CartContext } from '../context/CartContext';   //TRABAJANDO EN ACTIVIDA
 
 const ItemDetail = ({ item }) => {
 
+    const { addToCart } = useContext( CartContext ) //TRABAJANDO EN ACTIVIDAD 5
+
     const [add, setAdd] = useState(false)
 
     function onAdd(cantidad) {
         console.log('Hiciste onAdd ' + cantidad);
+        addToCart(cantidad) //TRABAJANDO EN ACTIVIDAD 5
+        console.log(addToCart);
         setAdd(true)
     }
-
-    //const { addToCart, removeList, deleteItem } = useContext( CartContext ) //TRABAJANDO EN ACTIVIDAD 5
 
     return (
         <>

@@ -7,6 +7,7 @@ const CartContextProvider = ({ children }) => {
     const [cartList, setCartList] = useState([])
 
     const addToCart = ( item ) => {
+        console.log("HICISTE UN addToCart");
         setCartList( cartList => cartList.concat(item) )
         }
 
