@@ -5,10 +5,12 @@ import Productos from './components/Productos';
 import Cart from './components/Cart';
 import ItemListContainer from './components/ItemListContainer';
 import ItemDetailContainer from './components/ItemDetailContainer';
-import Footer from './components/Footer'
+import Footer from './components/Footer';
+import CartContextProvider from '../src/context/CartContext';
 
 function App() {
   return (
+    <CartContextProvider>
     <div className='App'>
       <BrowserRouter>
         <NavBar/>
@@ -21,6 +23,7 @@ function App() {
       </BrowserRouter>
     <Footer/>
     </div>
+    </CartContextProvider>
   );
 }
 

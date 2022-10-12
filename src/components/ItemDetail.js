@@ -1,19 +1,18 @@
 import { useState } from 'react';
 import {Link} from "react-router-dom"
 import ItemCount from "./ItemCount"
-import { useContext } from 'react';                     //TRABAJANDO EN ACTIVIDAD 5
-import { CartContext } from '../context/CartContext';   //TRABAJANDO EN ACTIVIDAD 5
+import { useContext } from 'react';
+import { CartContext } from '../context/CartContext';
 
 const ItemDetail = ({ item }) => {
 
-    const { addToCart } = useContext( CartContext ) //TRABAJANDO EN ACTIVIDAD 5
+    const { addToCart } = useContext( CartContext )
 
     const [add, setAdd] = useState(false)
 
     function onAdd(cantidad) {
         console.log('Hiciste onAdd ' + cantidad);
-        addToCart(cantidad) //TRABAJANDO EN ACTIVIDAD 5
-        console.log(addToCart);
+        addToCart(cantidad)
         setAdd(true)
     }
 
