@@ -1,13 +1,13 @@
-//import { useContext } from 'react';                     //TRABAJANDO EN ACTIVIDAD 5
-//import { CartContext } from '../context/CartContext'; 
+import { useContext } from 'react';                     //TRABAJANDO EN ACTIVIDAD 5
+import { CartContext } from '../context/CartContext'; 
 
 const Cart = () => {
 
-    //const {cartList} = useContext(CartContext)
+    const {cartList} = useContext(CartContext)
 
     return (
         <div>
-        CARRITO
+        {cartList.map(item => <p>{item.name}</p>)}
         </div>
     )
 }

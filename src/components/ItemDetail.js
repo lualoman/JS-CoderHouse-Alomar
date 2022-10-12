@@ -10,9 +10,9 @@ const ItemDetail = ({ item }) => {
     const [counter, setCounter] = useState(1)
     const [add, setAdd] = useState(false)
 
-    function onAdd(cantidad) {
-        console.log('Hiciste onAdd ' + cantidad);
-        addToCart(cantidad)
+    function onAdd() {
+        console.log('Hiciste onAdd ' + counter);
+        addToCart(item, counter)
         setAdd(true)
     }
 
