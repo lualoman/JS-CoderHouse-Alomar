@@ -14,7 +14,7 @@ const CartContextProvider = ({ children }) => {
             quantity: counter 
         }
 
-        if(isInCart(newObj.id)){
+        if(isInCart(newObj.product.id)){
             cartList.map(product => {
                 if(product.id === newObj.id){
                     counter += newObj.counter
@@ -32,8 +32,9 @@ const CartContextProvider = ({ children }) => {
         setCartList.clear()
     }
 
-    const deleteItem = () => {
-        setCartList([])
+    const deleteItem = (id) => {
+        const updatedCart = cartList.filter(element => element.product.id !== id)
+        setCartList(updatedCart)
     }
 
     const isInCart = (id) => {

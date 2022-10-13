@@ -24,6 +24,7 @@ const ItemDetail = ({ item }) => {
                     <div className="card-body text-white align-items-center">
                         <h2 className="card-title">{item.name}</h2>
                         <p>Valor: ${item.price}</p>
+                        <p>{item.description}</p>
 
                         {add ? <Link className='m-4' to={`/cart`}>¡Agregaste un producto! IR A CART</Link> : <ItemCount stock={item.stock} counter={counter} setCounter={setCounter} initial={0} onAdd={onAdd}/>}
 
