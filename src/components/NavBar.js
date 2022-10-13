@@ -54,7 +54,7 @@ const NavBar = () => {
                                 <span style={styles} className="font-bold text-lg" >7 Productos</span>
                                 <span className="text-info">Subtotal: $999</span>
                                 <div className="card-actions">
-                                    <button className="btn btn-primary btn-block">Mi carrito</button>
+                                <Link to='/cart' className="btn btn-primary btn-block">Mi carrito</Link>
                                 </div>
                             </div>
                         </div>

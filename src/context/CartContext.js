@@ -7,26 +7,22 @@ const CartContextProvider = ({ children }) => {
     const [cartList, setCartList] = useState([])
 
     const addToCart = (item, counter) => {
-        console.log(`Hiciste un addToCart de: ${item.name}, cantidad: ${counter}`);
-        //ALTERNATIVA setCartList( cartList => cartList.concat(item) )
-        let compra = { ...item, quantity: counter }
-        setCartList([...cartList, compra])
+        console.log('Hiciste un addToCart');
 
-        if (isInCart(item.id)) {
-            const carritoAux = cartList.map(prod => {
-                if (prod.id === item.id) {
-                    const newProduct = {
-                        ...prod,
-                        cant: prod.cant + cant
-                    }
-                    return newProduct
-                } else {
-                    return prod
-                }
+        const newObj = { 
+            product: item, 
+            quantity: counter 
+        }
+    
+        if(isInCart(newObj.id)){
+            cartList.map(product => {
+                if(product.id === newObj.id){
+                    counter += newObj.counter
+            }
+            return(product)
             })
-            setCartList(carritoAux)
-        } else {
-            setCartList([...cartList, compra])
+        }else {
+        setCartList([...cartList, newObj])
         }
     }
 
@@ -36,13 +32,12 @@ const CartContextProvider = ({ children }) => {
         setCartList.clear()
     }
 
-    const deleteItem = (id) => {
-        const updateCart = cartList.filter(element => element.id !== id)
-        setCartList(updateCart)
+    const deleteItem = () => {
+        setCartList([])
     }
 
     const isInCart = (id) => {
-        return setCartList.some(element => element.id === id)
+        return cartList.some(element => element.id === id)
     }
 
     const context = {
