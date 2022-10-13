@@ -8,9 +8,9 @@ const CartItem = ({ item, handleDelete }) => {
                     <tbody>
                         <tr>
                             <td>{item.product.name}</td>
-                            <td>{item.counter} unidades</td>
+                            <td>{item.quantity} unidades</td>
                             <td>${item.product.price}</td>
-                            <td>TOTAL: </td>
+                            <td>TOTAL: ${item.quantity * item.product.price} </td>
                             <th><button className="btn btn-square btn-sm btn-outline btn-error" onClick={() => handleDelete(item.product.id)}>X</button></th>
                         </tr>
                     </tbody>

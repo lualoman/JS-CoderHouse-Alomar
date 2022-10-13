@@ -13,7 +13,7 @@ const CartContextProvider = ({ children }) => {
             product: item, 
             quantity: counter 
         }
-    
+
         if(isInCart(newObj.id)){
             cartList.map(product => {
                 if(product.id === newObj.id){
