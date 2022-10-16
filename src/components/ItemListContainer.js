@@ -3,6 +3,7 @@ import {useState, useEffect} from "react"
 import ItemList from "./ItemList"
 import {getProducts, getProductsByCategory} from "../data/asyncMock"
 import {useParams} from "react-router-dom"
+import Loader from "./Loader"
 
 function ItemListContainer({greeting}) {
 
@@ -12,10 +13,12 @@ function ItemListContainer({greeting}) {
     }
 
     const [items, setItems] = useState([])
+    const [loading, setLoading] = useState(false)
 
     const { id } = useParams()
 
     useEffect(() => {
+        setLoading(true)
 
         if(id) {
             getProductsByCategory(id).then((res) => {
@@ -27,13 +30,14 @@ function ItemListContainer({greeting}) {
             }).catch(err => {
                     console.log('err: ' + err);
                 })
+            .finally(() => setLoading(false))
             }
         }, [id])
 
     return (
         <>
             <p style={styles}>{greeting}</p>
-            <ItemList items={items}/>
+            { loading ? <Loader/> : <ItemList items={items}/>}
         </>
     )
 }
