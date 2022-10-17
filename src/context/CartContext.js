@@ -29,11 +29,11 @@ const CartContextProvider = ({ children }) => {
     //console.log(cartList);
 
     const totalProductsQty = () => {
-        return cartList.some((acc, ItemCart) => acc + ItemCart.count, 0)
+        return cartList.reduce((acc, CartItem) => acc + CartItem.quantity, 0)
     }
 
     const removeList = () => {
-        setCartList.clear()
+        setCartList([])
     }
 
     const deleteItem = (id) => {
@@ -50,6 +50,7 @@ const CartContextProvider = ({ children }) => {
         addToCart,
         removeList,
         deleteItem,
+        isInCart,
         totalProductsQty
     }
 

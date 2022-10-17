@@ -6,14 +6,14 @@ import { CartContext } from '../context/CartContext';
 
 const ItemDetail = ({ item }) => {
 
-    const { addToCart } = useContext( CartContext )
+    const { addToCart, isInCart, deleteItem } = useContext( CartContext )
     const [counter, setCounter] = useState(1)
-    const [add, setAdd] = useState(false)
+    //const [add, setAdd] = useState(false)
 
     function onAdd() {
         console.log('Hiciste onAdd, cantidad:' + counter);
         addToCart(item, counter)
-        setAdd(true)
+        //setAdd(true)
     }
 
     return (
@@ -26,7 +26,16 @@ const ItemDetail = ({ item }) => {
                         <p>Valor: ${item.price}</p>
                         <p>{item.description}</p>
 
-                        {add ? <Link className='m-4' to={`/cart`}>¡Agregaste un producto! IR A CART</Link> : <ItemCount stock={item.stock} counter={counter} setCounter={setCounter} initial={0} onAdd={onAdd}/>}
+                        {isInCart(item.id) ?
+                            <div>
+                                <p>Agregado a tu Carrito</p>
+                                <button onClick={() => deleteItem(item.id)}>Eliminar de mi Carrito</button>
+                            </div>
+                        :
+                        <p>AGREGAR</p>
+                        }
+
+                        {(isInCart(item.id)) ? <Link className='m-4' to={`/cart`}>¡Agregaste un producto! IR A CART</Link> : <ItemCount stock={item.stock} counter={counter} setCounter={setCounter} initial={0} onAdd={onAdd}/>}
 
                         <Link to={`/producto/category/${item.category}`}>Ver por CATEGORIA</Link>
                     </div>
