@@ -1,7 +1,8 @@
 import { useContext } from 'react';                     //TRABAJANDO EN ACTIVIDAD 5
 import { CartContext } from '../context/CartContext'; 
-import CartItem from './CartItem'
 import {Link} from "react-router-dom"
+import CartItem from './CartItem'
+import CartTotal from "./CartTotal"
 
 const Cart = () => {
 
@@ -20,6 +21,7 @@ const Cart = () => {
             <button className="btn btn-outline btn-error" onClick={() => removeList()}>Eliminar todo</button>
             </div>
         }
+        <CartTotal/>
         </>
     )
 }
