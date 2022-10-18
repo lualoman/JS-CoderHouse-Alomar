@@ -34,15 +34,15 @@ const ItemDetail = ({ item }) => {
                         <p>{item.description}</p>
 
                         {isInCart(item.id) ?
-                            <div>
-                                <p>Agregado a tu Carrito</p>
-                                <button className="btn btn-outline btn-accent" onClick={() => deleteItem(item.id)}>Eliminar de mi Carrito</button>
+                            <div className='m-3'>
+                                <p><strog>AGREGADO A TU CARRITO</strog></p>
+                                <button className="btn btn-xs btn-outline btn-accent" onClick={() => deleteItem(item.id)}>Eliminar de mi Carrito</button>
                             </div>
                         :
                         <p>AGREGAR</p>
                         }
 
-                        {isInCart(item.id) ? <Link className='m-4' to={`/cart`}>¡Agregaste un producto! IR A CART</Link> : <ItemCount stock={item.stock} counter={counter} setCounter={setCounter} initial={0} onAdd={onAdd}/>}
+                        {isInCart(item.id) ? <Link className='btn btn-xs m-2' to={`/cart`}>IR A CART</Link> : <ItemCount stock={item.stock} counter={counter} setCounter={setCounter} initial={0} onAdd={onAdd}/>}
 
                         <Link to={`/producto/category/${item.category}`}>Ver por CATEGORIA</Link>
                     </div>
