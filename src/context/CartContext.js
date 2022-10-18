@@ -26,8 +26,6 @@ const CartContextProvider = ({ children }) => {
         }
     }
 
-    //console.log(cartList);
-
     const totalProductsQty = () => {
         return cartList.reduce((acc, CartItem) => acc + CartItem.quantity, 0)
     }

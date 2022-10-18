@@ -8,12 +8,10 @@ const ItemDetail = ({ item }) => {
 
     const { addToCart, isInCart, deleteItem } = useContext( CartContext )
     const [counter, setCounter] = useState(1)
-    //const [add, setAdd] = useState(false)
 
     function onAdd() {
         console.log('Hiciste onAdd, cantidad:' + counter);
         addToCart(item, counter)
-        //setAdd(true)
     }
 
     if (item.stock === 0) return (

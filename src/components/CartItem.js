@@ -1,3 +1,5 @@
+import CartTotal from "./CartTotal"
+
 const CartItem = ({ item, handleDelete }) => {
 
     return (
@@ -17,6 +19,7 @@ const CartItem = ({ item, handleDelete }) => {
                 </table>
             </div>
         </div>
+        <CartTotal/>
         </>
     )
 }

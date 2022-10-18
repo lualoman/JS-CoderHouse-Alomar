@@ -23,7 +23,10 @@ function ItemListContainer({greeting}) {
         if(id) {
             getProductsByCategory(id).then((res) => {
                 setItems(res)
+            }).catch(err => {
+                console.log('err: ' + err);
             })
+        .finally(() => setLoading(false))
         }else{
             getProducts().then(res => {
                 setItems(res)
