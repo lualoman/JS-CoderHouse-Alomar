@@ -5,7 +5,7 @@ import CartWidget from './CartWidget';
 
 const NavBar = () => {
 
-    const {totalProductsQty} = useContext(CartContext)
+    const {totalProductsQty, totalProductsPrice} = useContext(CartContext)
 
     const styles = {
         color: 'white',
@@ -55,7 +55,7 @@ const NavBar = () => {
                         <div tabIndex={0} className="mt-3 card card-compact dropdown-content w-52 bg-base-100 shadow">
                             <div className="card-body">
                                 <span style={styles} className="font-bold text-lg" >{totalProductsQty()} Productos</span>
-                                <span className="text-info">Total: $</span>
+                                <span className="text-info">Total: $ {totalProductsPrice()} </span>
                                 <div className="card-actions">
                                 <Link to='/cart' className="btn btn-primary btn-block">Mi carrito</Link>
                                 </div>

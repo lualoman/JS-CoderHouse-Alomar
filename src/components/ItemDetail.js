@@ -16,6 +16,13 @@ const ItemDetail = ({ item }) => {
         //setAdd(true)
     }
 
+    if (item.stock === 0) return (
+        <>
+        <p>No hay stock disponible</p>
+        <button className="btn btn-outline btn-accent" to="/" >Volver a Inicio</button>
+        </>
+    )
+
     return (
         <>
             <div className="container-fluid justify-content-center flex m-4">
@@ -29,13 +36,13 @@ const ItemDetail = ({ item }) => {
                         {isInCart(item.id) ?
                             <div>
                                 <p>Agregado a tu Carrito</p>
-                                <button onClick={() => deleteItem(item.id)}>Eliminar de mi Carrito</button>
+                                <button className="btn btn-outline btn-accent" onClick={() => deleteItem(item.id)}>Eliminar de mi Carrito</button>
                             </div>
                         :
                         <p>AGREGAR</p>
                         }
 
-                        {(isInCart(item.id)) ? <Link className='m-4' to={`/cart`}>¡Agregaste un producto! IR A CART</Link> : <ItemCount stock={item.stock} counter={counter} setCounter={setCounter} initial={0} onAdd={onAdd}/>}
+                        {isInCart(item.id) ? <Link className='m-4' to={`/cart`}>¡Agregaste un producto! IR A CART</Link> : <ItemCount stock={item.stock} counter={counter} setCounter={setCounter} initial={0} onAdd={onAdd}/>}
 
                         <Link to={`/producto/category/${item.category}`}>Ver por CATEGORIA</Link>
                     </div>

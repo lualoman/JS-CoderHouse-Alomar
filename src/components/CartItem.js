@@ -13,15 +13,6 @@ const CartItem = ({ item, handleDelete }) => {
                             <td>Subtotal: ${item.quantity * item.product.price} </td>
                             <th><button className="btn btn-square btn-sm btn-outline btn-error" onClick={() => handleDelete(item.product.id)}>X</button></th>
                         </tr>
-
-                        <tr>
-                            <th></th>
-                            <th></th>
-                            <th></th>
-                            <th></th>
-                            <th>TOTAL: {[item.quantity * item.product.price].map(item => <h1>{item}</h1>)}</th>
-                        </tr>
-
                     </tbody>
                 </table>
             </div>
