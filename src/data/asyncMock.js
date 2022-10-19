@@ -1,5 +1,5 @@
-//import { collection, doc, getDoc, getDocs, getFirestore } from 'firebase/firestore'
-//import { useState } from 'react'
+//import { collection, doc, getDoc, getDocs, getFirestore, query, where } from 'firebase/firestore'
+//import { useEffect, useState } from 'react'
 
 //DB MANUAL
 const products = [
@@ -13,13 +13,16 @@ export const getProducts = () => {
 
     /*const [items, setItems] = useState([])
 
-    const db = getFirestore()
-    const itemsRef = collection(db, 'items')
-    getDocs(itemsRef).then( snapshot => {
-        const data = snapshot.docs.map( e => ({id: e.id, ...e.data()}))
-        console.table(data)
-        setItems(data)
-    })*/
+    useEffect(() => {
+        const db = getFirestore()
+    
+        const itemsCollection = collection(db, 'items')
+        getDocs(itemsCollection).then( (snapshot) => {
+            setItems( snapshot.docs.map( (e) => ({id: e.id, ...e.data()})) )
+            console.table(data)
+        })
+    }, [])
+            */
 
     //REEMPLAZANDO PROMISE 1
     return new Promise((resolve) => {
@@ -33,11 +36,17 @@ export const getProduct = (id) => {
 
     const getItem = products.find(getIt => getIt.id === id)
 
-    /*const db = getFirestore()
-        const itemRef = doc(db, 'items', '3MMo6CCE3amGCdqH2Ara')
-        getDoc(itemRef).then( res => {
-            console.log({ id: res.id, ...res.data()});
-        })*/
+    /*const [item, setItem] = useState([])
+    
+    const db = getFirestore()
+        
+    onst itemRef = doc(db, 'items', '3MMo6CCE3amGCdqH2Ara')
+        getDoc(itemRef).then( (snapshot) => {
+            if(snapshot.exists()){
+                setItem({ id: snapshot.id, ...snapshot.data() })
+            }
+        })
+    }, [])*/
 
         //REEMPLAZANDO PROMISE 2
     return new Promise((resolve) => {
@@ -51,11 +60,23 @@ export const getProductsByCategory = (category) => {
 
     const getItem = products.filter(getIt => getIt.category === category)
 
-    /*const db = getFirestore()
-        const itemRef = doc(db, 'items', '3MMo6CCE3amGCdqH2Ara')
-        getDoc(itemRef).then( res => {
-            console.log({ id: res.id, ...res.data()});
-        })*/
+    /*const [items, setItems] = useState([])
+
+    useEffect(() => {
+        const db = getFirestore()
+    
+        const q = query(collection(db, 'items'), 
+                    where('category', '==', 'Iluminacion'))
+                    limit(1)
+        getDocs(q).then( (snapshot) => {
+            if(snapshot === '0'){
+                console.log('no results')
+            }
+            setItems( snapshot.docs.map( (e) => ({id: e.id, ...e.data()})) )
+            console.table(data)
+        })
+    }, [])
+            */
 
         //REEMPLAZANDO PROMISE 3
     return new Promise((resolve) => {
