@@ -7,6 +7,7 @@ import ItemListContainer from './components/ItemListContainer';
 import ItemDetailContainer from './components/ItemDetailContainer';
 import Footer from './components/Footer';
 import CartContextProvider from '../src/context/CartContext';
+import ListContainer from './firebase/ListContainer';
 
 function App() {
   return (
@@ -16,6 +17,7 @@ function App() {
         <NavBar/>
         <Routes>
           <Route path={"/"} element={<Productos/>}/>
+          <Route path={"/firebase"} element={<ListContainer/>}/>
           <Route path={"/producto/item/:id"} element={<ItemDetailContainer/>}/>
           <Route path={"/producto/category/:id"} element={<ItemListContainer/>}/>
           <Route path={"/cart"} element={<Cart/>}/>
