@@ -1,7 +1,8 @@
 import {useState, useEffect} from "react"
 import ItemList from "./ItemList"
 import Loader from "./Loader"
-import { collection, getDocs, getFirestore } from 'firebase/firestore'
+import { collection, getDocs, getFirestore, limit, query, where } from 'firebase/firestore'
+import { useParams } from "react-router-dom"
 
 function ItemListContainer({greeting}) {
 
@@ -11,11 +12,21 @@ function ItemListContainer({greeting}) {
     }
 
     const [items, setItems] = useState([])
+    const [category, setCategory] = useState([])
     const [loading, setLoading] = useState(true)
+    const { categoryId } = useParams()
+    const { id } = useParams()
 
     useEffect(() => {
         getItems()
     }, [])
+
+
+    {const collectionRef = categoryId ? query(collection(db, 'items'), where('category', '==', categoryId)) 
+        : 
+        collection(db,'items')}
+
+    const collectionRef = id ? query(collection(db,'items'), where('category', '==', id))
 
     const getItems = () => {
         const db = getFirestore()
@@ -24,6 +35,21 @@ function ItemListContainer({greeting}) {
             const data = snapshot.docs.map( e => ({id: e.id, ...e.data()}))
             console.table(data)
             setItems(data)
+            setLoading(false)
+        })
+    }
+
+    const getItemsCategory = () => {
+        const db = getFirestore()
+        const q = query(collection(db, 'items'),
+        where('category', '===', categoryId),
+        limit(1)
+        )
+        getDocs(q).then( (snapshot) => {
+            if(snapshot.size === 0){
+                console.log('No results');
+            }
+            setCategory( snapshot.docs.map( (e) => ({id: e.id, ...e.data()})) )
             setLoading(false)
         })
     }
