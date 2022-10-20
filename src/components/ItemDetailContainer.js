@@ -1,8 +1,8 @@
 import { useEffect, useState } from "react"
-import ItemDetail from "./ItemDetail"
-import {getProduct} from "../data/asyncMock"
 import {useParams} from "react-router-dom"
-//import { doc, getDoc, getFirestore } from 'firebase/firestore'
+import { doc, getDoc, getFirestore } from "firebase/firestore"
+import ItemDetail from "./ItemDetail"
+//import {getProduct} from "../data/asyncMock"
 
 const ItemDetailContainer = () => {
 
@@ -10,28 +10,37 @@ const ItemDetailContainer = () => {
     const { id } = useParams()
 
     useEffect(() => {
-        /*const db = getFirestore()
+        const getProducto = async () => {
+            const db = getFirestore()
 
-        const itemRef = doc(db, 'items', '3MMo6CCE3amGCdqH2Ara')
-        getDoc(itemRef).then( (snapshot) => {
-            if(snapshot.exists()){
-                setItem({ id: snapshot.id, ...snapshot.data() })
-            }
-        })
-    }, [])*/
-        
+            const itemRef = doc(db, "productos", id);
+            const response = await getDoc(itemRef);
+            const newItem = {
+                id: response.id,
+                ...response.data(),
+            };
+            setTimeout(() => {
+                setItem(newItem);
+            }, 2000)
+        };
+        getProducto();
+    }, [id]);
+
+        // OPCION A REEMPLAZAR CON LLAMADO A FIRESTORE
+        /*
+        useEffect(() => {
         getProduct(id).then(res => {
             setItem(res)
         })
             .catch(err => {
                 console.log('err: ' + err);
             })
-    }, [id])
+    }, [id])*/
 
     return (
         <>
-        <div>ItemDetailContainer</div>
-        <ItemDetail item={item}/>
+            <div>ItemDetailContainer</div>
+            <ItemDetail item={item} />
         </>
     )
 }

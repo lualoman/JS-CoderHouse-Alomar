@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react"
-import { collection, getDocs, getFirestore, /*query, where*/ } from 'firebase/firestore'
+import { collection, getDocs, getFirestore } from 'firebase/firestore'
 
 const ListContainer = () => {
 
@@ -7,7 +7,6 @@ const ListContainer = () => {
 
     useEffect(() => {
         getItems()
-        //getItemsPrice(15)
     }, [])
 
     const getItems = () => {
@@ -19,17 +18,6 @@ const ListContainer = () => {
             setItems(data)
         })
     }
-
-    /*const getItemsPrice = (price) => {
-        const db = getFirestore()
-        const itemsRef = collection(db, 'items')
-        const   q = query(itemsRef, where('price', '>', price))
-        getDocs(q).then( snapshot => {
-            const data = snapshot.docs.map( e => ({id: e.id, ...e.data()}))
-            console.table(data)
-            setItems(data)
-        })
-    }*/
 
     return (
     <div>{ items.map( i => <li key={i.id}>{i.name}</li> ) }</div>
