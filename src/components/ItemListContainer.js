@@ -1,9 +1,9 @@
-
 import {useState, useEffect} from "react"
 import ItemList from "./ItemList"
-import {getProducts, getProductsByCategory} from "../data/asyncMock"
-import {useParams} from "react-router-dom"
 import Loader from "./Loader"
+//import {getProducts, getProductsByCategory} from "../data/asyncMock"
+//import {useParams} from "react-router-dom"
+import { collection, getDocs, getFirestore } from 'firebase/firestore'
 
 function ItemListContainer({greeting}) {
 
@@ -11,8 +11,28 @@ function ItemListContainer({greeting}) {
         backgroundColor: '#D926A9',
         color: 'white'
     }
+    
 
     const [items, setItems] = useState([])
+    const [loading, setLoading] = useState(true)
+
+    useEffect(() => {
+        getItems()
+    }, [])
+
+    const getItems = () => {
+        const db = getFirestore()
+        const itemsRef = collection(db, 'items')
+        getDocs(itemsRef).then( snapshot => {
+            const data = snapshot.docs.map( e => ({id: e.id, ...e.data()}))
+            console.table(data)
+            setItems(data)
+            setLoading(false)
+        })
+    }
+
+
+    /*const [items, setItems] = useState([])
     const [loading, setLoading] = useState(false)
 
     const { id } = useParams()
@@ -35,7 +55,7 @@ function ItemListContainer({greeting}) {
                 })
             .finally(() => setLoading(false))
             }
-        }, [id])
+        }, [id])*/
 
     return (
         <>

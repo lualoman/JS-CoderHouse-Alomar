@@ -5,12 +5,12 @@ import App from './App';
 import { initializeApp } from "firebase/app";
 
 const firebaseConfig = {
-  apiKey: process.env.REACT_APP_apiKey,
-  authDomain: process.env.REACT_APP_authDomain,
-  projectId: process.env.REACT_APP_projectId,
-  storageBucket: process.env.REACT_APP_storageBucket,
-  messagingSenderId: process.env.REACT_APP_messagingSenderId,
-  appId: process.env.REACT_APP_appId
+        apiKey: "AIzaSyAfUTMvTzdc3zJS35ws2ut3mKr1Imna_Uk",
+        authDomain: "alomar-reactjs-coderhouse.firebaseapp.com",
+        projectId: "alomar-reactjs-coderhouse",
+        storageBucket: "alomar-reactjs-coderhouse.appspot.com",
+        messagingSenderId: "842725535282",
+        appId: "1:842725535282:web:9ebb8b0fb2df92475bd62b"
 };
 
 initializeApp(firebaseConfig);
