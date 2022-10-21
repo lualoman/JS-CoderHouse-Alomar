@@ -8,6 +8,7 @@ import ItemDetailContainer from './components/ItemDetailContainer';
 import Footer from './components/Footer';
 import CartContextProvider from '../src/context/CartContext';
 import ListContainer from './firebase/ListContainer';
+import Order from './components/Order';
 
 function App() {
   return (
@@ -21,6 +22,7 @@ function App() {
           <Route path={"/producto/item/:id"} element={<ItemDetailContainer/>}/>
           <Route path={"/producto/category/:id"} element={<ItemListContainer/>}/>
           <Route path={"/cart"} element={<Cart/>}/>
+          <Route path={"/order"} element={<Order/>}/>
         </Routes>
         <Footer/>
       </BrowserRouter>
