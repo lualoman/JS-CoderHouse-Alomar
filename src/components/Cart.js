@@ -18,10 +18,15 @@ const Cart = () => {
             :
             <div>
             {cartList.map(item => <CartItem key={item.product.id} item={item} handleDelete={deleteItem} />)}
-            <button className="btn btn-outline btn-error" onClick={() => removeList()}>Eliminar todo</button>
+            <CartTotal/>
+            <button className="btn btn-outline btn-error m-2" onClick={() => removeList()}>Eliminar todo</button>
+
+            <div className='m-3'>
+                <button className='btn btn-outline btn-accent'><Link to='/order'>FINALIZAR ORDEN DE COMPRA</Link></button>
+            </div>
+
             </div>
         }
-        <CartTotal/>
         </>
     )
 }
