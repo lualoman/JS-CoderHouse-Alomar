@@ -1,6 +1,6 @@
-import { addDoc, collection, getFirestore } from 'firebase/firestore'
 import { useState, useContext } from 'react'
 import { CartContext } from '../context/CartContext'
+import { addDoc, collection, getFirestore } from 'firebase/firestore'
 import UserOrder from './UserOrder'
 import AlertId from './AlertId'
 
@@ -45,7 +45,7 @@ const Order = () => {
                 <button className="btn btn-outline btn-accent m-3" onClick={sendOrder}>Finalizar</button>
                 </>
                 :
-                <AlertId id={id}/>
+                <AlertId/>
             }
         </>
     )
