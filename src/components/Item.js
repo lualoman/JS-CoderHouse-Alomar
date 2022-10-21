@@ -10,7 +10,7 @@ const Item = ({ id, name, price, pictureUrl, category }) => {
                     <div className="card-body text-white align-items-center">
                         <h2 className="card-title">{name}</h2>
                         <p>Valor: ${price}</p>
-                        <Link to={`producto/category/${category}`}><button className="btn btn-ghost">VER POR CATEGORIA</button></Link>
+                        <Link to={`/producto/category/${category}`}><button className="btn btn-ghost">VER POR CATEGORIA</button></Link>
                         <div className="card-actions justify-end">
                         <Link to={`/producto/item/${id}`}><button className="btn btn-outline btn-accent">Comprar</button></Link>
                         </div>

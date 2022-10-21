@@ -13,13 +13,13 @@ function ItemListContainer({greeting}) {
 
     const [items, setItems] = useState([])
     const [loading, setLoading] = useState(true)
-    const { categoryId } = useParams()
+    const { id } = useParams()
 
     useEffect(() => {
         const getItems = () => {
             const db = getFirestore()
     
-            const collectionRef = categoryId ? query(collection(db, 'items'), where('category', '==', categoryId)) 
+            const collectionRef = id ? query(collection(db, 'items'), where('category', '==', id)) 
             : 
             collection(db,'items')
     
@@ -31,7 +31,7 @@ function ItemListContainer({greeting}) {
             })
         }
         getItems()
-    }, [categoryId])
+    }, [id])
 
     return (
         <>
