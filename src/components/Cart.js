@@ -22,7 +22,7 @@ const Cart = () => {
             <button className="btn btn-outline btn-error m-2" onClick={() => removeList()}>Eliminar todo</button>
 
             <div className='m-3'>
-                <button className='btn btn-outline btn-accent'><Link to='/order'>FINALIZAR ORDEN DE COMPRA</Link></button>
+            <Link to='/order'><button className='btn btn-outline btn-accent'>FINALIZAR ORDEN DE COMPRA</button></Link>
             </div>
 
             </div>
