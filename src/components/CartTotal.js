@@ -6,7 +6,7 @@ const CartTotal = () => {
     const {totalProductsPrice} = useContext(CartContext)
 
     return (
-        <div className='container flex justify-content-center'>
+    <div className='container flex justify-content-center'>
         <tr className='ml-25'>
         <th></th>
         <th></th>
