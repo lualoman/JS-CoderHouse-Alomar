@@ -21,11 +21,12 @@ const Order = () => {
 
         const db = getFirestore()
         const ordersCollection = collection(db, 'orders')
-        addDoc(ordersCollection, order).then(({ id }) => {
+        addDoc(ordersCollection, order).then((id) => {
             console.log(id)
             setOrderId(id)
         })
         removeList()
+        console.log(orderId);
     }
 
     return (
@@ -45,7 +46,7 @@ const Order = () => {
                 <button className="btn btn-outline btn-accent m-3" onClick={sendOrder}>Finalizar</button>
                 </>
                 :
-                <AlertId/>
+                <AlertId id={orderId}/>
             }
         </>
     )

@@ -1,6 +1,6 @@
 import React from 'react'
 
-const AlertId = (id) => {
+const AlertId = ({id}) => {
     return (
     <div>
     <div className="alert alert-success shadow-lg">

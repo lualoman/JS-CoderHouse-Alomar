@@ -32,7 +32,7 @@ const ItemDetail = ({ item }) => {
 
                         {isInCart(item.id) ?
                             <div className='m-3'>
-                                <p><strog>AGREGADO A TU CARRITO</strog></p>
+                                <p><strong>AGREGADO A TU CARRITO</strong></p>
                                 <button className="btn btn-xs btn-outline btn-accent" onClick={() => deleteItem(item.id)}>Eliminar de mi Carrito</button>
                             </div>
                         :
